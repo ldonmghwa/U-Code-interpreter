@@ -1,0 +1,120 @@
+	bgn
+	ldp
+	call main
+	end
+main	proc 105
+	sym 2 0 100 %list
+	sym 2 100 1 %element
+	sym 2 101 1 %total
+	sym 2 102 1 %i
+	sym 2 103 1 %top
+	sym 2 104 1 %temp
+	ldc 1
+	str 2 102
+	ldp
+	lda 2 100
+	push
+	call read
+$$0	nop
+	lod 2 100
+	ldc 0
+	ne
+	fjp $$1
+	lod 2 102
+	lda 2 0
+	add
+	lod 2 100
+	sti
+	lod 2 102
+	inc
+	str 2 102
+	ldp
+	lda 2 100
+	push
+	call read
+	ujp $$0
+$$1	nop
+	lod 2 102
+	ldc 1
+	sub
+	dup
+	str 2 101
+	str 2 103
+$$2	nop
+	lod 2 103
+	ldc 1
+	gt
+	fjp $$6
+	ldc 1
+	str 2 102
+$$3	nop
+	lod 2 102
+	lod 2 103
+	lt
+	fjp $$5
+	lod 2 102
+	lda 2 0
+	add
+	ldi
+	lod 2 102
+	ldc 1
+	add
+	lda 2 0
+	add
+	ldi
+	gt
+	fjp $$4
+	lod 2 102
+	lda 2 0
+	add
+	ldi
+	str 2 104
+	lod 2 102
+	lda 2 0
+	add
+	lod 2 102
+	ldc 1
+	add
+	lda 2 0
+	add
+	ldi
+	sti
+	lod 2 102
+	ldc 1
+	add
+	lda 2 0
+	add
+	lod 2 104
+	sti
+$$4	nop
+	lod 2 102
+	inc
+	str 2 102
+	ujp $$3
+$$5	nop
+	lod 2 103
+	dec
+	str 2 103
+	ujp $$2
+$$6	nop
+	ldc 1
+	str 2 102
+$$7	nop
+	lod 2 102
+	lod 2 101
+	le
+	fjp $$8
+	ldp
+	lod 2 102
+	lda 2 0
+	add
+	ldi
+	push
+	call write
+	lod 2 102
+	inc
+	str 2 102
+	ujp $$7
+$$8	nop
+	ret
+	
